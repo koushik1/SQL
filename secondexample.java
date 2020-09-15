@@ -41,9 +41,19 @@ public class secondexample {
 
 		// Create the COFFEES table
 
-        stmt.executeUpdate("ALTER TABLE COFFEES1 " +
-                "ADD CONSTRAINT coffee_pk "+
-			   "PRIMARY KEY (SUP_ID)");
+        //stmt.executeUpdate("ALTER TABLE COFFEES1 " +
+        //        "ADD CONSTRAINT coffee_pk "+
+        //   "PRIMARY KEY (SUP_ID)");
+        
+        try {
+            stmt.executeUpdate("INSERT INTO COFFEES1 " +
+            "VALUES ('Colombian', 101, 7.99, 0, 0)");
+        }
+
+        catch (java.sql.SQLException e) {
+
+            System.out.println ("Caught SQLException " + e.getErrorCode() + "/" + e.getSQLState() + " " +  e.getMessage() ) ; 
+        }
 
 
             } finally {
